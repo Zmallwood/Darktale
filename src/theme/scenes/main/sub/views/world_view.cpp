@@ -22,6 +22,8 @@ namespace darktale {
 
         auto hovered_coordinate{_<tile_hovering>().hovered_coordinate_};
 
+        auto faced_tile{_<player>().faced_tile_};
+
         auto tile_width{_<game_properties>().k_tile_width_};
         auto tile_height{convert_width_to_height(tile_width)};
 
@@ -121,6 +123,12 @@ namespace darktale {
                 if (elevation > elevation_west) {
                     _<image_renderer>().draw_image("elevation_edge_west",
                                                    tile_x, tile_y, tile_width,
+                                                   tile_height);
+                }
+
+                if (x_coordinate == faced_tile.x && y_coordinate == faced_tile.y) {
+                    _<image_renderer>().draw_image("faced_tile", tile_x,
+                                                   tile_y, tile_width,
                                                    tile_height);
                 }
 

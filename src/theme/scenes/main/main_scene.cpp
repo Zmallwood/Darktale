@@ -23,10 +23,14 @@ namespace darktale {
 
     void main_scene::on_key_down(SDL_Keycode key) {
         _<keyboard_movement>().on_key_down(key);
+
+        _<mouse_movement>().on_key_down(key);
     }
 
     void main_scene::on_key_up(SDL_Keycode key) {
         _<keyboard_movement>().on_key_up(key);
+
+        _<mouse_movement>().on_key_up(key);
     }
 
     void main_scene::on_mouse_down(Uint8 button) {

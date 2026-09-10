@@ -24,25 +24,69 @@ namespace darktale {
                 }
 
                 if (dy < 0 && abs_dy > abs_dx) {
-                    _<player>().move_north();
+                    if (ctrl_key_down_) {
+                        _<player>().turn_north();
+                    } else {
+                        _<player>().move_north();
+                    }
                 } else if (dy > 0 && abs_dy > abs_dx) {
-                    _<player>().move_south();
+                    if (ctrl_key_down_) {
+                        _<player>().turn_south();
+                    } else {
+                        _<player>().move_south();
+                    }
                 } else if (dx < 0 && abs_dx > abs_dy) {
-                    _<player>().move_west();
+                    if (ctrl_key_down_) {
+                        _<player>().turn_west();
+                    } else {
+                        _<player>().move_west();
+                    }
                 } else if (dx > 0 && abs_dx > abs_dy) {
-                    _<player>().move_east();
+                    if (ctrl_key_down_) {
+                        _<player>().turn_east();
+                    } else {
+                        _<player>().move_east();
+                    }
                 } else if (dy < 0) {
-                    _<player>().move_north();
+                    if (ctrl_key_down_) {
+                        _<player>().turn_north();
+                    } else {
+                        _<player>().move_north();
+                    }
                 } else if (dy > 0) {
-                    _<player>().move_south();
+                    if (ctrl_key_down_) {
+                        _<player>().turn_south();
+                    } else {
+                        _<player>().move_south();
+                    }
                 } else if (dx < 0) {
-                    _<player>().move_west();
+                    if (ctrl_key_down_) {
+                        _<player>().turn_west();
+                    } else {
+                        _<player>().move_west();
+                    }
                 } else if (dx > 0) {
-                    _<player>().move_east();
+                    if (ctrl_key_down_) {
+                        _<player>().turn_east();
+                    } else {
+                        _<player>().move_east();
+                    }
                 }
 
                 _<player>().ticks_last_movement_ = now;
             }
+        }
+    }
+
+    void mouse_movement::on_key_down(SDL_Keycode key) {
+        if (key == SDLK_LCTRL || key == SDLK_RCTRL) {
+            ctrl_key_down_ = true;
+        }
+    }
+
+    void mouse_movement::on_key_up(SDL_Keycode key) {
+        if (key == SDLK_LCTRL || key == SDLK_RCTRL) {
+            ctrl_key_down_ = false;
         }
     }
 

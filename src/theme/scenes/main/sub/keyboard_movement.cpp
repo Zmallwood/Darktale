@@ -15,16 +15,33 @@ namespace darktale {
             (w_pressed || s_pressed || a_pressed || q_pressed)) {
 
             if (w_pressed) {
-                _<player>().move_north();
-            }
-            else if (s_pressed) {
-                _<player>().move_east();
-            }
-            else if (a_pressed) {
-                _<player>().move_south();
-            }
-            else if (q_pressed) {
-                _<player>().move_west();
+                if (pressed_keys_.contains(SDLK_LCTRL) ||
+                    pressed_keys_.contains(SDLK_RCTRL)) {
+                    _<player>().turn_north();
+                } else {
+                    _<player>().move_north();
+                }
+            } else if (s_pressed) {
+                if (pressed_keys_.contains(SDLK_LCTRL) ||
+                    pressed_keys_.contains(SDLK_RCTRL)) {
+                    _<player>().turn_east();
+                } else {
+                    _<player>().move_east();
+                }
+            } else if (a_pressed) {
+                if (pressed_keys_.contains(SDLK_LCTRL) ||
+                    pressed_keys_.contains(SDLK_RCTRL)) {
+                    _<player>().turn_south();
+                } else {
+                    _<player>().move_south();
+                }
+            } else if (q_pressed) {
+                if (pressed_keys_.contains(SDLK_LCTRL) ||
+                    pressed_keys_.contains(SDLK_RCTRL)) {
+                    _<player>().turn_west();
+                } else {
+                    _<player>().move_west();
+                }
             }
 
             _<player>().ticks_last_movement_ = now;
