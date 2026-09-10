@@ -119,6 +119,8 @@ namespace darktale {
                     continue;
                 }
 
+                tile->tile_objects_->clear();
+
                 tile->tile_objects_->add_object("object_tree_1");
             }
         }

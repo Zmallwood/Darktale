@@ -6,6 +6,7 @@ namespace darktale {
         void render();
 
       private:
-        static constexpr point_f k_margin{0.03f, 0.01f};
+        static constexpr float k_view_width_{0.5f};
+        static constexpr point_f k_margin_{0.03f, 0.01f};
     };
 }

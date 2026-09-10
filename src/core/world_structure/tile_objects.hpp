@@ -7,7 +7,7 @@ namespace darktale {
       public:
         void clear();
 
-        void add_object(std::string_view object_name, point position = {5, 5});
+        void add_object(std::string_view object_name, point position = {-1, -1});
 
         std::map<point, std::shared_ptr<object>> objects_;
     };
