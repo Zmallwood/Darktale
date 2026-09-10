@@ -7,6 +7,8 @@
 #include "core/world_structure/tile.hpp"
 #include "core/world_structure/world.hpp"
 #include "core/world_structure/world_area.hpp"
+#include "theme/scenes/main/sub/tile_hovering.hpp"
+#include "core/configuration/game_properties.hpp"
 
 namespace darktale {
     void world_view::render() {
@@ -18,7 +20,9 @@ namespace darktale {
 
         auto player_elevation{player_tile->elevation_};
 
-        auto tile_width{0.05f};
+        auto hovered_coordinate{_<tile_hovering>().hovered_coordinate_};
+
+        auto tile_width{_<game_properties>().k_tile_width_};
         auto tile_height{convert_width_to_height(tile_width)};
 
         for (auto y = -6; y < 11 + 6; y++) {
@@ -117,6 +121,14 @@ namespace darktale {
                 if (elevation > elevation_west) {
                     _<image_renderer>().draw_image("elevation_edge_west",
                                                    tile_x, tile_y, tile_width,
+                                                   tile_height);
+                }
+
+                if (x_coordinate == hovered_coordinate.x &&
+                    y_coordinate == hovered_coordinate.y) {
+
+                    _<image_renderer>().draw_image("hovered_tile", tile_x,
+                                                   tile_y, tile_width,
                                                    tile_height);
                 }
 

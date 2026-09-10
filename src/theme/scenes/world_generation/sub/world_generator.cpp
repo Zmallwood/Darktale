@@ -97,13 +97,13 @@ namespace darktale {
         auto world_area{_<world>().current_world_area_};
         auto size{world_area->get_size()};
 
-        auto num_tree_1_groups{40 + rand() % 10};
+        auto num_tree_1_groups{160 + rand() % 10};
 
         for (auto i = 0; i < num_tree_1_groups; i++) {
             auto x{rand() % size.width};
             auto y{rand() % size.height};
 
-            auto num_tree_1s{20 + rand() % 10};
+            auto num_tree_1s{60 + rand() % 10};
 
             for (auto j = 0; j < num_tree_1s; j++) {
                 x += rand() % 3 - rand() % 3;

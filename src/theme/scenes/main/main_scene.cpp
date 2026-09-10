@@ -2,10 +2,13 @@
 #include "sub/views/world_view.hpp"
 #include "sub/views/first_person_view.hpp"
 #include "sub/keyboard_movement.hpp"
+#include "sub/tile_hovering.hpp"
 
 namespace darktale {
     void main_scene::update_derived() {
         _<keyboard_movement>().update();
+
+        _<tile_hovering>().update();
     }
 
     void main_scene::render_derived() {
