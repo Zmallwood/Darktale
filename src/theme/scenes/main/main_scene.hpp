@@ -12,5 +12,7 @@ namespace darktale {
         void on_key_down(SDL_Keycode key) override;
 
         void on_key_up(SDL_Keycode key) override;
+
+        void on_mouse_down(Uint8 button) override;
     };
 }
