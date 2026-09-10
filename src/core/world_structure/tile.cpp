@@ -1,8 +1,8 @@
 #include "tile.hpp"
-#include "object_stack.hpp"
+#include "tile_objects.hpp"
 
 namespace darktale {
     tile::tile() {
-        object_stack_ = std::make_shared<object_stack>();
+        tile_objects_ = std::make_shared<tile_objects>();
     }
 }

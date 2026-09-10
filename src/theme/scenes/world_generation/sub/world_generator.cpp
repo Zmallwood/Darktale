@@ -1,5 +1,5 @@
 #include "world_generator.hpp"
-#include "core/world_structure/object_stack.hpp"
+#include "core/world_structure/tile_objects.hpp"
 #include "core/world_structure/tile.hpp"
 #include "core/world_structure/world.hpp"
 #include "core/world_structure/world_area.hpp"
@@ -119,7 +119,7 @@ namespace darktale {
                     continue;
                 }
 
-                tile->object_stack_->add_object("object_tree_1");
+                tile->tile_objects_->add_object("object_tree_1");
             }
         }
     }

@@ -1,7 +1,7 @@
 #pragma once
 
 namespace darktale {
-    class object_stack;
+    class tile_objects;
 
     class tile {
       public:
@@ -9,6 +9,6 @@ namespace darktale {
 
         int ground_{0};
         int elevation_{0};
-        std::shared_ptr<object_stack> object_stack_;
+        std::shared_ptr<tile_objects> tile_objects_;
     };
 }

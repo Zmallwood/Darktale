@@ -3,7 +3,7 @@
 #include "core/rendering/image_renderer.hpp"
 #include "core/sdl_device/sdl_device.hpp"
 #include "core/world_structure/object.hpp"
-#include "core/world_structure/object_stack.hpp"
+#include "core/world_structure/tile_objects.hpp"
 #include "core/world_structure/tile.hpp"
 #include "core/world_structure/world.hpp"
 #include "core/world_structure/world_area.hpp"
@@ -140,9 +140,11 @@ namespace darktale {
                                                    tile_height);
                 }
 
-                auto objects{tile->object_stack_->objects_};
+                auto objects{tile->tile_objects_->objects_};
 
-                for (auto object : objects) {
+                for (auto entry : objects) {
+                    auto object{entry.second};
+                    
                     auto object_type{object->type_};
 
                     _<image_renderer>().draw_image(object_type, tile_x,

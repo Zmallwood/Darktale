@@ -3,11 +3,13 @@
 #include <iostream>
 #include <memory>
 #include <unordered_map>
+#include <map>
 #include <filesystem>
 #include <string>
 #include <string_view>
 #include <vector>
 #include <set>
+#include <compare>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
