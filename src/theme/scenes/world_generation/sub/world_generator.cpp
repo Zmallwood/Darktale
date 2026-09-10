@@ -97,7 +97,35 @@ namespace darktale {
         auto world_area{_<world>().current_world_area_};
         auto size{world_area->get_size()};
 
-        auto num_tree_1_groups{160 + rand() % 10};
+        auto num_tree_2_groups{100 + rand() % 10};
+
+        for (auto i = 0; i < num_tree_2_groups; i++) {
+            auto x{rand() % size.width};
+            auto y{rand() % size.height};
+
+            auto num_tree_2s{60 + rand() % 10};
+
+            for (auto j = 0; j < num_tree_2s; j++) {
+                x += rand() % 3 - rand() % 3;
+                y += rand() % 3 - rand() % 3;
+
+                if (!world_area->is_valid_coordinate(x, y)) {
+                    continue;
+                }
+
+                auto tile{world_area->get_tile(x, y)};
+
+                if (tile->ground_ == get_hash("ground_water")) {
+                    continue;
+                }
+
+                tile->tile_objects_->clear();
+
+                tile->tile_objects_->add_object("object_tree_2");
+            }
+        }
+
+        auto num_tree_1_groups{100 + rand() % 10};
 
         for (auto i = 0; i < num_tree_1_groups; i++) {
             auto x{rand() % size.width};
